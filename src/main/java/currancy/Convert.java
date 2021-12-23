@@ -16,7 +16,13 @@ public class Convert implements iparser {
             double desirePointFloat = (double) currancyArray.get(b.getDesirePoint());
             double finalyPointFloat = desirePointFloat * b.getCurrancy();
             return finalyPointFloat;
-        } else {
+        }
+        else if(b.getDesirePoint().equals("EUR")) {
+            double basePointFloat = (double) currancyArray.get(b.getBasePoint());
+            double finalyPointFloat = b.getCurrancy()/basePointFloat;
+            return finalyPointFloat;
+            }
+        else {
             double basePointFloat = (double) currancyArray.get(b.getBasePoint());
             double desirePointFloat = (double) currancyArray.get(b.getDesirePoint());
             double finalyPointFloat = (basePointFloat * b.getCurrancy()) / desirePointFloat;
