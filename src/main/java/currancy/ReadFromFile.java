@@ -10,9 +10,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class readFromFile implements reader{
+public class ReadFromFile implements ireader{
     private String filePath;
-    readFromFile(String filePath){
+    ReadFromFile(String filePath){
         this.filePath = filePath;
     }
     @Override
@@ -21,11 +21,6 @@ public class readFromFile implements reader{
         return content;
     }
 
-    @Override
-    public JSONObject parser(String json) throws ParseException {
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsoner = (JSONObject) jsonParser.parse(json);
-        return jsoner;
 
-    }
+
 }
