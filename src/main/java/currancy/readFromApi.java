@@ -12,9 +12,12 @@ import java.net.http.HttpResponse;
 
 
 public class readFromApi implements reader {
-    private static final String DATA = "http://localhost:8006/rates/";
+    private static final String DATA = "http://api.exchangeratesapi.io/v1/latest?access_key=868fe0da551c1c47997fbdf9767bc1d8";
     private JSONObject json;
-
+    private  String endPoint;
+    readFromApi(String endPoint){
+        this.endPoint = endPoint;
+    }
 
     @Override
     public String read(UserRequest a) throws IOException, InterruptedException, ParseException {
@@ -23,7 +26,7 @@ public class readFromApi implements reader {
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
                 .header("accept", "application/json")
-                .uri(URI.create(DATA+a.getBasePoint()))
+                .uri(URI.create(endPoint))
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();

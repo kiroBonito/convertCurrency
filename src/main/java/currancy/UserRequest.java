@@ -47,4 +47,12 @@ public class UserRequest {
     private String desirePoint;
     private float currancy;
 
+    @Override
+    public String toString() {
+        return "UserRequest{" +
+                "basePoint='" + basePoint + '\'' +
+                ", desirePoint='" + desirePoint + '\'' +
+                ", currancy=" + currancy +
+                '}';
+    }
 }

@@ -11,6 +11,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class readFromFile implements reader{
+    private String filePath;
+    readFromFile(String filePath){
+        this.filePath = filePath;
+    }
     @Override
     public String read(UserRequest a) throws IOException, InterruptedException, ParseException {
         String content = Files.readString(Paths.get(a.getFileName()), StandardCharsets.US_ASCII);
